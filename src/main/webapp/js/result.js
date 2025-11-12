@@ -419,7 +419,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const researchButton = document.querySelector(".research");
   if (researchButton) {
     researchButton.addEventListener("click", () => {
-      window.location.href = "search.html";
+      window.location.href = "search.jsp";
     });
   }
 });

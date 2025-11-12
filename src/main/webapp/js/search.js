@@ -37,20 +37,19 @@ if (isMobileDevice()) {
 }
 
 // 歩きスマホアラート（スマホだけ表示）
-
 if (isMobileDevice() && !sessionStorage.getItem("noWalkingAlert")) {
   const proceed = window.confirm("歩きスマホはやめましょう");
   if (proceed) {
     sessionStorage.setItem("noWalkingAlert", "true");
   } else {
-    window.location.href = "index.html";
+    window.location.href = "index.jsp";
   }
 }
 
 // ----------------------------------------------------
 //  ルート生成（submit）ロジック
 // ----------------------------------------------------
-document.getElementById("search-form").addEventListener("submit", function (e) {
+document.getElementById("search-form").addEventListener("submit", (e) => {
   e.preventDefault();
 
   // 3つの入力欄の要素を取得
@@ -69,7 +68,7 @@ document.getElementById("search-form").addEventListener("submit", function (e) {
 
   const address = pref + cityStreet + buildingNumber;
 
-  // Google Maps APIキー (result.htmlなどで使用されているキーに統一)
+  // Google Maps APIキー (既存のものを流用)
   const apiKey = "AIzaSyAL_XSlv1njUcuR9FhptALAjQJpDegIerM";
 
   // 1. 【最優先チェック】住所が空欄の場合、フォームにアラートバブルを表示して終了
@@ -100,18 +99,10 @@ document.getElementById("search-form").addEventListener("submit", function (e) {
         localStorage.setItem("latitude", location.lat);
         localStorage.setItem("longitude", location.lng);
 		
-		fetch("/sanpoApp/route", {
-		         method: "POST",
-		         headers: { "Content-Type": "application/json" },
-		         body: JSON.stringify({ latitude: location.lat, longitude: location.lng }),
-		       })
-		         .then((response) => response.text())
-		         .then((data) => {
-		           console.log("サーバーからの応答:", data);
-		         })
-		         .catch((error) => {
-		           console.error("サーバー通信エラー:", error);
-		         });
+		// ------------------------------------------------------------------
+		// 【✅ 修正 2】サーバーへの fetch ブロックを削除しました。
+		// サーバー処理を省略し、クライアント側で処理を続行します。
+		// ------------------------------------------------------------------
 
         // --- 距離/時間の入力チェックと保存 ---
         const walkDistanceInput = document.getElementById("walk-distance");
@@ -151,8 +142,8 @@ document.getElementById("search-form").addEventListener("submit", function (e) {
         );
         localStorage.setItem("walkTime", walkTimeMin > 0 ? walkTimeMin : 0);
 
-        // result.html に移動
-        window.location.href = "result.html";
+        // 【✅ 修正 1-2】result.html から result.jsp に修正し、遷移
+        window.location.href = "result.jsp";
       } else {
         alert("出発地点の取得に失敗しました: " + data.status);
       }
@@ -247,14 +238,12 @@ function reverseGeocode(lat, lng) {
         // ★丁目・番地以下の情報のみを削除するロジックを強化★
         if (cityStreet) {
           // 1. 漢数字またはアラビア数字の後に「丁目」「番地」「番」「号」が続くパターンをすべて削除
-          // これにより「〇〇町一丁目」や「〇〇町1-10」などの末尾を削除し、町名までを残す。
-          // 漢数字（一二三...）や全角数字、ハイフン、スペースなども対象に含める
           const comprehensivePattern =
             /([\s\d０-９一二三四五六七八九十]+\s*(丁目|番地|番|号)\s*[\d０-９\-\s]*)$/;
           cityStreet = cityStreet.replace(comprehensivePattern, "").trim();
 
           // 2. 上記で削除しきれなかった、末尾にある数字やハイフン（純粋な番地）も削除
-          const numberPattern = /([\d０-９\-\s]+)$/;
+          const numberPattern = /([\d０-９\-\s]+)$/m; // 改行をまたがないようmフラグ追加
           cityStreet = cityStreet.replace(numberPattern, "").trim();
 
           // 最終チェック：末尾が「丁目」で終わってしまっている場合を削除 (保険)

@@ -85,6 +85,6 @@
 
     <jsp:include page="footer.jsp" />
 
-    <script src="js/search.js"></script>
+    <script src="${pageContext.request.contextPath}/js/search.js"></script>
   </body>
 </html>

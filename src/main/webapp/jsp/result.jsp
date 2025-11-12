@@ -47,6 +47,6 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <!-- 独自JS -->
-    <script src="js/result.js"></script>
+    <script src="${pageContext.request.contextPath}/js/result.js"></script>
   </body>
 </html>

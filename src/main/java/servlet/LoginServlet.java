@@ -14,48 +14,43 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-@WebServlet("/loginServlet")
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
 
-        try {
-            Class.forName("org.h2.Driver");
-            Connection conn = DriverManager.getConnection(
-                "jdbc:h2:file:C:/Users/7Java14/Desktop/DB/sanpoApp;AUTO_SERVER=TRUE", 
-                "sa", 
-                ""
-            );
+		try {
+			Class.forName("org.h2.Driver");
+			try (Connection conn = DriverManager.getConnection(
+					"jdbc:h2:file:C:/Users/7Java14/Desktop/DB/sanpoApp;AUTO_SERVER=TRUE",
+					"sa",
+					"");
+					PreparedStatement ps = conn.prepareStatement("SELECT password FROM users WHERE username=?")) {
 
-            String sql = "SELECT password FROM users WHERE username=?";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, username);
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-                String storedHash = rs.getString("password");
-                if (BCrypt.checkpw(password, storedHash)) {
-                    // ログイン成功
-                    request.getSession().setAttribute("user", username);
-                    response.sendRedirect("search.jsp");
-                } else {
-                    // パスワード不一致
-                    response.sendRedirect("login.jsp?error=1");
-                }
-            } else {
-                // ユーザーなし
-                response.sendRedirect("login.jsp?error=1");
-            }
-
-            rs.close();
-            ps.close();
-            conn.close();
-        } catch(Exception e) {
-            e.printStackTrace();
-            response.sendRedirect("login.jsp?error=1");
-        }
-    }
+				ps.setString(1, username);
+				try (ResultSet rs = ps.executeQuery()) {
+					if (rs.next()) {
+						String storedHash = rs.getString("password");
+						if (BCrypt.checkpw(password, storedHash)) {
+							// ログイン成功
+							request.getSession().setAttribute("user", username);
+							// WEB-INF 配下の welcome.jsp は直接アクセスできないのでサーブレット経由
+							response.sendRedirect(request.getContextPath() + "/welcome");
+							return;
+						}
+					}
+					// ユーザーなし or パスワード不一致
+					request.setAttribute("errorMessage", "ユーザー名またはパスワードが間違っています。");
+					request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			request.setAttribute("errorMessage", "ログイン処理中にエラーが発生しました。");
+			request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
+		}
+	}
 }

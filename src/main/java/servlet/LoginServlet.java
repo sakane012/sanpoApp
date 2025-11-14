@@ -28,16 +28,21 @@ public class LoginServlet extends HttpServlet {
 					"jdbc:h2:file:C:/Users/7Java14/Desktop/DB/sanpoApp;AUTO_SERVER=TRUE",
 					"sa",
 					"");
-					PreparedStatement ps = conn.prepareStatement("SELECT password FROM users WHERE username=?")) {
+					PreparedStatement ps = conn.prepareStatement(
+							"SELECT id, password FROM users WHERE username=?")) {
 
 				ps.setString(1, username);
 				try (ResultSet rs = ps.executeQuery()) {
 					if (rs.next()) {
+						int userId = rs.getInt("id");
 						String storedHash = rs.getString("password");
+
 						if (BCrypt.checkpw(password, storedHash)) {
 							// ログイン成功
-							request.getSession().setAttribute("user", username);
-							// WEB-INF 配下の welcome.jsp は直接アクセスできないのでサーブレット経由
+							request.getSession().setAttribute("userId", userId); // ← RegisterRouteServlet 用
+							request.getSession().setAttribute("user", username); // ← 表示用など
+
+							// welcome.jsp はサーブレット経由で表示
 							response.sendRedirect(request.getContextPath() + "/welcome");
 							return;
 						}

@@ -19,7 +19,6 @@
 	if (errorMessage != null) {
 	%>
 	<p style="color: red; margin-bottom: 15px;"><%=errorMessage%></p>
-	a
 	<%
 	}
 	%>

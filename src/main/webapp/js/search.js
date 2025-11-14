@@ -1,6 +1,8 @@
 const MIN_WALK_DISTANCE = 0.5;
 
+// -----------------------------
 // モバイルデバイス判定関数
+// -----------------------------
 function isMobileDevice() {
   const userAgent = navigator.userAgent || navigator.vendor || window.opera;
   if (/android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent)) {
@@ -13,7 +15,9 @@ function isMobileDevice() {
   return false;
 }
 
+// -----------------------------
 // モバイルで歩きスマホ警告
+// -----------------------------
 if (isMobileDevice() && !sessionStorage.getItem("noWalkingAlert")) {
   const proceed = window.confirm("歩きスマホはやめましょう");
   if (proceed) {
@@ -23,7 +27,9 @@ if (isMobileDevice() && !sessionStorage.getItem("noWalkingAlert")) {
   }
 }
 
+// -----------------------------
 // ルート生成（submit）ロジック
+// -----------------------------
 document.getElementById("search-form").addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -84,7 +90,8 @@ document.getElementById("search-form").addEventListener("submit", (e) => {
         localStorage.setItem("walkDistance", walkDistanceKm > 0 ? walkDistanceKm : 0);
         localStorage.setItem("walkTime", walkTimeMin > 0 ? walkTimeMin : 0);
 
-		window.location.href = contextPath + "/result";
+        // ルート生成ページへ遷移
+        window.location.href = contextPath + "/result";
 
       } else {
         alert("出発地点の取得に失敗しました: " + data.status);
@@ -96,7 +103,9 @@ document.getElementById("search-form").addEventListener("submit", (e) => {
     });
 });
 
+// -----------------------------
 // 現在地取得ボタン
+// -----------------------------
 document.getElementById("get-location-button").addEventListener("click", function () {
   if (!navigator.geolocation) {
     alert("お使いのブラウザは現在地取得に対応していません。");
@@ -123,7 +132,9 @@ document.getElementById("get-location-button").addEventListener("click", functio
   );
 });
 
+// -----------------------------
 // 緯度経度→住所（リバースジオコーディング）
+// -----------------------------
 function reverseGeocode(lat, lng) {
   const apiKey = "AIzaSyAL_XSlv1njUcuR9FhptALAjQJpDegIerM";
   const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}&language=ja`;
@@ -165,3 +176,20 @@ function reverseGeocode(lat, lng) {
       alert("現在地の住所変換中にエラーが発生しました。");
     });
 }
+
+// -----------------------------
+// お気に入り登録ボタン
+// -----------------------------
+document.getElementById("register-button").addEventListener("click", function() {
+    // hidden フィールドにフォームの値をコピー
+    document.getElementById("fav-prefecture").value = document.getElementById("prefecture").value;
+    document.getElementById("fav-cityStreet").value = document.getElementById("city-street").value;
+    document.getElementById("fav-buildingNumber").value = document.getElementById("building-number").value;
+
+    // 緯度経度は localStorage から取得
+    document.getElementById("fav-latitude").value = localStorage.getItem("latitude") || 0;
+    document.getElementById("fav-longitude").value = localStorage.getItem("longitude") || 0;
+
+    // hidden フォームを submit
+    document.getElementById("favorite-form").submit();
+});

@@ -10,7 +10,7 @@
 
 	<h1>サインアップ</h1>
 
-	<form action="${pageContext.request.contextPath}/SignupServlet"
+	<form action="${pageContext.request.contextPath}/signup"
 		method="post">
 		<label>ユーザー名: <input type="text" name="username" required></label><br>
 		<label>パスワード: <input type="password" name="password" required></label><br>

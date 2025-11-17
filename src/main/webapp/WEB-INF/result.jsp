@@ -30,12 +30,9 @@
 		<div id="map"></div>
 		<div id="route-info"></div>
 
-		<button>
-			<a href="${pageContext.request.contextPath}/result" class="research-link-button">再検索</a>
-		</button>
-		<button>
-			<a href="search.jsp">検索画面へ</a>
-		</button>a
+		<button
+			onclick="location.href='${pageContext.request.contextPath}/result'">再検索</button>
+		<button id="btn-search">検索画面へ</button>
 	</main>
 
 
@@ -45,6 +42,7 @@
 	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 	<!-- 独自JS -->
-	<script src="${pageContext.request.contextPath}/js/result.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/js/result.js?v=20251118"></script>
 </body>
 </html>

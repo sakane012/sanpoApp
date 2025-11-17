@@ -2,32 +2,54 @@ package model;
 
 public class FavoriteAddress {
 
-    private int userId;
-    private String address;
-    private double latitude;
-    private double longitude;
+	private int id;
+	private int userId;
+	private String prefecture;
+	private String cityStreet;
+	private String buildingNumber;
+	private double latitude;
+	private double longitude;
 
-    public FavoriteAddress(int userId, String address, double latitude, double longitude) {
-        this.userId = userId;
-        this.address = address;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
+	public FavoriteAddress(int id, int userId, String prefecture, String cityStreet, String buildingNumber,
+			double latitude, double longitude) {
+		this.id = id;
+		this.userId = userId;
+		this.prefecture = prefecture;
+		this.cityStreet = cityStreet;
+		this.buildingNumber = buildingNumber;
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}
 
-    public int getUserId() {
-        return userId;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public double getLatitude() {
-        return latitude;
-    }
+	public int getUserId() {
+		return userId;
+	}
 
-    public double getLongitude() {
-        return longitude;
-    }
+	public String getPrefecture() {
+		return prefecture;
+	}
+
+	public String getCityStreet() {
+		return cityStreet;
+	}
+
+	public String getBuildingNumber() {
+		return buildingNumber;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
 }
-	

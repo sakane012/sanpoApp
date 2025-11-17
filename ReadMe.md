@@ -1,7 +1,9 @@
-# 🌐 Webアプリケーション開発ポートフォリオ（Java / JSP / Servlet）
+# 🌐 さんぽアプリポートフォリオ（Java / JSP / Servlet / javaScript）
 
 ## 📘 概要
-Java / JSP / Servlet / SQL を用いて開発した Web アプリケーションです。  
+本アプリは、ユーザが入力した現在地や条件に応じて、散歩ルートを提案する
+アプリケーションです。  
+ランダムにルートを提示することで、日常の散歩をより充実させます。  
 
 
 ---
@@ -24,9 +26,9 @@ Java / JSP / Servlet / SQL を用いて開発した Web アプリケーション
 | カテゴリ | 内容 |
 |------------|------|
 | ログイン機能 | 新規登録・ログイン・ログアウト|
-| 現在地取得機能 | GoogleAPIで現在地を取得し、フォームに自動入力 |
-| 出発地お気に入り登録機能 | DBに格納、取得 |
-| ルート生成機能 |ユーザーの現在地、歩行時間 or 歩行距離の条件を元にランダムなルート生成 |
+| 現在地取得機能 | GoogleAPIで現在地を取得、フォームに自動入力 |
+| お気に入り機能 | 追加、削除 |
+| ルート生成機能 |ユーザーの現在地、時間 or 距離を条件にランダムなルート生成 |
 
 ---
 
@@ -42,11 +44,13 @@ sanpoApp/
 │   │   │   │   ├── FavotireDao.java
 │   │   │   │   └── UserDAO.java
 │   │   │   └── servlet/
+│   │   │       ├── DeleteFavoriteServlet.java
+│   │   │       ├── FavoreteListServlet.java
 │   │   │       ├── LoginServlet.java
 │   │   │       ├── LogoutServlet.java
-│   │   │       ├── RegisterRouteServlet.java
+│   │   │       ├── RegisterAddressServlet.java
 │   │   │       ├── ResultServlet.java
-│   │   │       ├── SignServlet.java
+│   │   │       ├── SignupServlet.java
 │   │   │       └── WelcomeServlet.java
 │   │   └── webapp/
 │   │       ├── jsp
@@ -55,6 +59,7 @@ sanpoApp/
 │   │       │   ├── logout.jsp
 │   │       │   └── search.jsp
 │   │       └── WEB-INF/
+│   │           ├── favorites.jsp
 │   │           ├── header.jsp
 │   │           ├── footer.jsp
 │   │           ├── welcome.jsp
@@ -74,8 +79,8 @@ sanpoApp/
 | カラム名 | 型 | 説明 |
 |-----------|----|------|
 | id | INT | 主キー（AUTO_INCREMENT） |
-| name | VARCHAR(50) | ユーザー名 |
-| email | VARCHAR(100) | メールアドレス |
+| name | VARCHAR | ユーザー名 |
+| email | VARCHAR | メールアドレス |
 | password | VARCHAR(255) | ハッシュ化されたパスワード |
 | created_at | DATETIME | 登録日時 |
 
@@ -83,10 +88,12 @@ sanpoApp/
 | カラム名 | 型 | 説明 |
 |-----------|----|------|
 | id | INT | 主キー（AUTO_INCREMENT） |
-| user_id | INT | users.id と紐づく外部キー |
-| address | VARCHAR(255) | 入力された住所文字列 |
-| latitude | DOUBLE | 緯度（裏側で自動取得）|
-| longitude | DOUBLE | 経度（裏側で自動取得）|
+| user_id | INT | users.id (外部キー) |
+| prefecture| VARCHAR | 都道府県 |
+| cityStreet | VARCHAR | 市区町村・町名|
+| buildingNumber | VARCHAR | 番地 |
+| latitude | DOUBLE | 緯度 |
+| longitude | DOUBLE | 経度 |
 | created_at | TIMESTAMP | 登録日時 |
 
 ---
@@ -116,8 +123,7 @@ sanpoApp/
 - **Servlet & JSP**：HTTPリクエスト処理・セッション管理・リダイレクト制御  
 - **DAOパターン**：DB操作の共通化・保守性向上  
 - **SQL**：CRUD・JOIN・トランザクション  
-- **HTML/CSS**：UI / フォーム入力補助  
-- **Tomcat**：WARデプロイ・ローカルテスト環境構築  
+- **Tomcat**：ローカルテスト環境構築  
 
 ---
 
@@ -146,15 +152,15 @@ sanpoApp/
 ---
 
 ## 👤 作成者
-- **氏名（またはGitHubアカウント）**：sakane012  
-- **開発期間**：2025年○月〜○月  
-- **連絡先**：your-email@example.com  
+- **GitHubアカウント**：sakane012  
+- **開発期間**：2025年10月〜11月  
+- **連絡先**：sakanereiji@gmail.com  
 - **GitHub**：https://github.com/yourname/java-webapp-portfolio
 
 ---
 
 ## ✅ 最終更新日
-2025-11-13
+2025-11-17
 
 ---
 

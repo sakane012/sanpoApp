@@ -1,0 +1,33 @@
+/* フッター全体のスタイル */
+footer {
+    width: 100%;
+    background-color: #a8e6a3;
+    padding: 15px 20px;
+    text-align: center;
+    font-family: "Yu Gothic", "Hiragino Kaku Gothic Pro", Meiryo, sans-serif;
+    color: #2d5f2d;
+    font-weight: bold;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+
+    /* 中央寄せレイアウト */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* ▼ココが最重要（body flex の中で一番下へ押し出す） */
+    margin-top: auto;
+}
+
+/* フッター内テキスト */
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* スマホ対応 */
+@media screen and (max-width: 600px) {
+    footer {
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+}

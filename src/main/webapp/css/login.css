@@ -1,65 +1,68 @@
 /*----------------------------------------
-  全体設定
+  全体リセット
+----------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*----------------------------------------
+  body全体
 ----------------------------------------*/
 body {
     font-family: "Yu Gothic", "Hiragino Kaku Gothic Pro", Meiryo, sans-serif;
-    background-color: #f0f8f0;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column; /* ヘッダー・フッターを縦に並べる */
+    background-color: #f5fff5;
+    line-height: 1.5;
+    text-align: center;
+
+    display: flex;          
+    flex-direction: column;
+    min-height: 100vh;      
 }
 
 /*----------------------------------------
-  フォームラッパー：縦横中央寄せ
+  メインコンテンツ
 ----------------------------------------*/
-.form-wrapper {
-    flex: 1;
+.content {
+    flex: 1; 
     display: flex;
     flex-direction: column;
-    justify-content: center; /* 縦方向中央 */
-    align-items: center;     /* 横方向中央 */
-    text-align: center;
+    justify-content: center; 
+    align-items: center;     
+    padding: 20px;
+    width: 100%;
 }
 
 /*----------------------------------------
-  タイトル
+  見出し
 ----------------------------------------*/
-h1 {
-    color: #2d5f2d;
-    font-size: 2.5rem;
-    margin-top: 50px;
-    text-align: center;
+h2 {
+    font-size: 2rem;
+    margin: 2rem 0 1.5rem; 
+    color: #2e7d32;
 }
 
 /*----------------------------------------
-  エラーメッセージ
+  エラー表示
 ----------------------------------------*/
 .error {
-    color: #d32f2f;
-    margin-bottom: 15px;
+    color: #c62828;
     font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 /*----------------------------------------
-  フォームコンテナ
+  フォーム
 ----------------------------------------*/
 .login-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    padding: 20px 30px;
-    width: 350px;
-    max-width: 90%;
+    width: 100%;
+    max-width: 400px;
 }
 
-/*----------------------------------------
-  ラベルと入力欄のグループ
-----------------------------------------*/
 .input-group {
     display: flex;
     flex-direction: column;
@@ -67,74 +70,73 @@ h1 {
 }
 
 .input-group label {
-    color: #2d5f2d;
     font-weight: bold;
+    font-size: 1rem;
     text-align: left;
 }
 
-.input-group input[type="text"],
-.input-group input[type="password"] {
-    padding: 8px 10px;
-    border: 2px solid #a8e6a3;
+.input-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1rem;
-    width: 100%;
 }
 
 /*----------------------------------------
-  ボタン
+  ログインボタン
 ----------------------------------------*/
-.login-form button {
-    background-color: #a8e6a3;
-    color: #2d5f2d;
-    font-weight: bold;
-    border: 2px solid #2d5f2d;
+.button-login {
+    display: flex;
+    flex-direction: column;   /* 縦並びにしたい場合 */
+    align-items: center;      /* 横方向中央揃え */
+    gap: 15px;                /* 他ボタンと同じ間隔 */
+    margin: 20px 0;
+}
+
+.button-login .login {
+    padding: 12px 25px;
     border-radius: 8px;
-    padding: 12px 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 100%; /* 横幅をフォームいっぱいに */
-}
-
-.login-form button:hover {
-    background-color: #2d5f2d;
-    color: #ffffff;
-    transform: translateY(-2px);
-}
-
-/*----------------------------------------
-  フォーム外リンク
-----------------------------------------*/
-.login-links {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.login-links p {
-    margin: 5px 0;
-}
-
-.login-links a {
-    color: #2d5f2d;
+    background-color: #a8e6a3;
+    color: #2e7d32;
+    font-size: 1rem;
     font-weight: bold;
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    transition: 0.3s;
+    cursor: pointer;
+    transition: 0.2s;
+
+    width: 100%;              /* 最大幅まで広げる */
+    max-width: 200px;         /* button-groupと同じ最大幅 */
 }
 
-
+.button-login .login:hover {
+    background-color: #90df8c;
+}
 
 /*----------------------------------------
-  レスポンシブ対応
+  ボタン（新規作成 / ゲスト開始）
 ----------------------------------------*/
-@media (max-width: 400px) {
-    .login-form {
-        padding: 15px 20px;
-        width: 90%;
-    }
-
-    .login-form button {
-        padding: 10px;
-    }
+.button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
 }
+
+.small button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #a8e6a3;
+    color: #2e7d32;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+
+    width: 100%;
+    max-width: 180px;  /* 標準より少し小さめ */
+}
+
+.button-group-small button:hover {
+    background-color: #90df8c;
+}
+

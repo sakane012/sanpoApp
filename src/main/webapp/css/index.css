@@ -1,139 +1,78 @@
-/* ========================================
-さんぽルートメーカー - index.css
-======================================== */
-
-/* リセット */
+/*----------------------------------------
+  全体リセット
+----------------------------------------*/
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-/* 画面全体 */
+/*----------------------------------------
+  body全体
+----------------------------------------*/
 body {
     font-family: "Yu Gothic", "Hiragino Kaku Gothic Pro", Meiryo, sans-serif;
-    background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 50%, #e8f5e9 100%);
-    min-height: 100vh;
+    background-color: #f5fff5;
+    line-height: 1.5;
+    text-align: center;
+
+    display: flex;          /* 縦方向フレックス */
+    flex-direction: column;
+    min-height: 100vh;      /* ビューポート全体の高さ */
+}
+
+/*----------------------------------------
+  メインコンテンツ
+----------------------------------------*/
+.content {
+    flex: 1; /* 残りスペースを埋める → フッター下固定 */
     display: flex;
     flex-direction: column;
-    color: #2d5f2d;
-    line-height: 1.6;
+    justify-content: center; /* 縦方向中央 */
+    align-items: center;     /* 横方向中央 */
+    padding: 20px;
 }
 
-/* ← これは削除（全体のレイアウトが狂う原因）
-body > *:not(header):not(footer) { ... }
-*/
+/*----------------------------------------
+  見出し
+----------------------------------------*/
+h2 {
+    font-size: 2rem;
+    margin: 2rem 0 1.5rem; 
+}
 
-/* main：残りの高さを埋めて中央に */
-main {
-    flex: 1;
+/*----------------------------------------
+  概要テキスト
+----------------------------------------*/
+.overview {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/*----------------------------------------
+  ボタン縦並び
+ ---------------------------------------- */
+.button-group {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-    animation: fadeIn 0.8s ease-in;
+    flex-direction: column;  /* 縦並び */
+    align-items: center;     /* 横中央揃え */
+    gap: 15px;               /* ボタン間隔 */
+    margin: 20px 0;
 }
 
-/* アニメーション */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-/* タイトル */
-body h1 {
-    text-align: center;
-    color: #2d5f2d;
-    font-size: 2.8rem;
+.button-group button {
+    padding: 12px 25px;
+    border-radius: 8px;
+    background-color: #a8e6a3;
+    color: #2e7d32;
+    font-size: 1rem;
     font-weight: bold;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    letter-spacing: 2px;
-}
-
-/* 説明文 */
-body p {
-    text-align: center;
-    color: #3b5d3b;
-    font-size: 1.1rem;
-    margin: 15px auto;
-    max-width: 600px;
-    line-height: 1.8;
-}
-
-/* ボタン（共通） */
-button {
-    background: linear-gradient(135deg, #a8e6a3 0%, #8fd687 100%);
-    color: #2d5f2d;
-    font-weight: bold;
-    font-size: 1.1rem;
-    border: 2px solid #2d5f2d;
-    border-radius: 30px;
-    padding: 15px 40px;
-    margin: 8px auto;
+    transition: 0.2s;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    width: 200px;
-    display: block;
+
+    width: 100%;
+    max-width: 200px;
 }
 
-button:hover {
-    background: linear-gradient(135deg, #2d5f2d 0%, #1e4a1e 100%);
-    color: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-button:active {
-    transform: translateY(-1px);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-}
-
-/* ボタン群 */
-.button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    margin-top: 30px;
-}
-
-/* 背景付きブロック */
-.welcome-section {
-    background: rgba(255,255,255,0.7);
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    backdrop-filter: blur(10px);
-    max-width: 700px;
-    margin: 20px;
-}
-
-/* レスポンシブ */
-@media screen and (max-width: 768px) {
-    body h1 { font-size: 2.2rem; }
-    body p { font-size: 1rem; }
-    button { font-size: 1rem; min-width: 180px; }
-    .welcome-section { padding: 30px 20px; }
-}
-
-@media screen and (max-width: 600px) {
-    body h1 { font-size: 1.8rem; }
-    body p { font-size: 0.95rem; }
-    button { min-width: 160px; }
-    .welcome-section { padding: 25px 15px; margin: 10px; }
-    main { padding: 20px 10px; }
-}
-
-@media screen and (max-width: 400px) {
-    body h1 { font-size: 1.5rem; }
-    button { min-width: 140px; }
-}
-
-/* フォーカス対応 */
-button:focus {
-    outline: 3px solid #66bb6a;
-    outline-offset: 2px;
+.button-group button:hover {
+    background-color: #90df8c; 
 }

@@ -6,12 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>お気に入り一覧</title>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/header.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/footer.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/favorites.css">
 </head>
 <body>
 	<jsp:include page="/WEB-INF/header.jsp" />
 
 	<main>
-		<h1>お気に入り一覧</h1>
+		<h2>お気に入り一覧</h2>
 
 		<c:if test="${empty favorites}">
 			<p>お気に入りが登録されていません。</p>
@@ -23,7 +29,7 @@
 		<c:if test="${not empty favorites}">
 			<ul>
 				<c:forEach var="fav" items="${favorites}">
-					<li>${fav.prefecture} ${fav.cityStreet} ${fav.buildingNumber}
+					<li>${fav.prefecture}${fav.cityStreet} ${fav.buildingNumber}
 						<form action="${pageContext.request.contextPath}/jsp/search.jsp"
 							method="get" style="display: inline;">
 							<input type="hidden" name="prefecture" value="${fav.prefecture}">
@@ -33,8 +39,7 @@
 								name="lat" value="${fav.latitude}"> <input type="hidden"
 								name="lng" value="${fav.longitude}">
 							<button type="submit">この住所をセット</button>
-						</form>
-						 <!-- 削除ボタン -->
+						</form> <!-- 削除ボタン -->
 						<form action="${pageContext.request.contextPath}/deleteFavorite"
 							method="post" style="display: inline;">
 							<input type="hidden" name="id" value="${fav.id}">

@@ -1,0 +1,198 @@
+/*----------------------------------------
+  全体リセット
+----------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*----------------------------------------
+  body全体
+----------------------------------------*/
+body {
+    font-family: "Yu Gothic", "Hiragino Kaku Gothic Pro", Meiryo, sans-serif;
+    background-color: #f5fff5;
+    line-height: 1.5;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/*----------------------------------------
+  mainコンテンツ中央寄せ
+----------------------------------------*/
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+
+/*----------------------------------------
+  フォーム全体
+----------------------------------------*/
+#search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/*----------------------------------------
+  出発地点・条件見出し
+----------------------------------------*/
+.departure-point,
+.condition {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/*----------------------------------------
+  入力グループ1（出発地点）
+----------------------------------------*/
+.input-group1 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-group1 label {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.input-group1 input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+/*----------------------------------------
+  入力グループ2（条件）
+----------------------------------------*/
+.input-group2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-group2 label {
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.input-group2 input.walk-distance-input,
+.input-group2 input.walk-time-input {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    max-width: 120px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.walk-distance-unit,
+.walk-time-unit {
+    margin-left: 5px;
+    font-size: 0.9rem;
+}
+
+/*----------------------------------------
+  エラー表示
+----------------------------------------*/
+#favorite-error {
+    color: #c62828;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* 条件フォームの文字サイズ */
+.input-group2 label {
+    font-size: 1rem;  /* ラベルの文字サイズ */
+    font-weight: bold;
+}
+
+.input-group2 input.walk-distance-input,
+.input-group2 input.walk-time-input {
+    font-size: 0.8rem;  /* 入力欄の文字サイズ */
+    padding: 8px 10px; /* 入力欄の高さを少し大きく */
+}
+
+.input-group2 .walk-distance-unit,
+.input-group2 .walk-time-unit {
+    font-size: 0.9rem;  /* 単位の文字サイズ */
+}
+
+
+/*----------------------------------------
+  ボタン（現在地・お気に入り）
+----------------------------------------*/
+#search-form button#register-button,
+#search-form button#get-location-button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background-color: #a8e6a3;
+    color: #2e7d32;
+    border: 2px solid #000;
+    cursor: pointer;
+    transition: 0.2s;
+    max-width: 150px;
+    text-align: center;
+}
+
+#search-form button#register-button:hover,
+#search-form button#get-location-button:hover {
+    background-color: #90df8c;
+}
+
+/*----------------------------------------
+  ルート生成ボタン
+----------------------------------------*/
+#search-form .submit-button {
+    display: block;
+    margin: 20px auto 0 auto;
+    width: 180px;
+    padding: 12px 25px;
+    border-radius: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid #000;
+    transition: 0.2s;
+    text-align: center;
+}
+
+#search-form .submit-button:hover {
+    background-color: #45a049;
+}
+
+/*----------------------------------------
+  リンク（お気に入り一覧）
+----------------------------------------*/
+#search-form a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+#search-form a:hover {
+    text-decoration: underline;
+}
+
+

@@ -32,7 +32,7 @@
 
 		<button
 			onclick="location.href='${pageContext.request.contextPath}/result'">再検索</button>
-		<button >
+		<button>
 			<a href="${pageContext.request.contextPath}/jsp/search.jsp">検索画面へ</a>
 		</button>
 	</main>

@@ -10,6 +10,8 @@
 	href="${pageContext.request.contextPath}/css/header.css">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/footer.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/search.css">
 </head>
 <body>
 	<jsp:include page="/WEB-INF/header.jsp" />
@@ -20,41 +22,37 @@
 			<p class="departure-point">出発地点</p>
 			<button type="button" id="get-location-button">現在地を取得</button>
 
-			<div class="input-group">
+			<div class="input-group1">
 				<label for="prefecture">都道府県：</label> <input type="text"
 					id="prefecture" class="location-input" placeholder="例：大阪府" />
 			</div>
 
-			<div class="input-group">
+			<div class="input-group1">
 				<label for="city-street">市区町村・町名：</label> <input type="text"
 					id="city-street" class="location-input" placeholder="例：大阪市北区梅田" />
 			</div>
 
-			<div class="input-groupQ">
+			<div class="input-group1">
 				<label for="building-number">番地：</label> <input type="text"
 					id="building-number" class="location-input"
 					placeholder="例：1丁目1-100" />
+				<p id="favorite-error" style="color: red;"></p>
+				</p>
+				<button type="button" id="register-button">お気に入りに登録</button>
+				<p>
+					<a href="${pageContext.request.contextPath}/favoriteList">お気に入り一覧</a>
+				</p>
 			</div>
 
-
-			<p id="favorite-error" style="color: red;"></p>
-			</p>
-			<button type="button" id="register-button">お気に入りに登録</button>
-
-
-			<p>
-				<a href="${pageContext.request.contextPath}/favoriteList">お気に入り一覧</a>
-			</p>
-
 			<p class="condition">条件</p>
-			<div class="input-group">
+			<div class="input-group2">
 				<label for="walk-distance">距離：</label> <input type="number"
 					id="walk-distance" class="walk-distance-input" step="0.1"
-					placeholder="小数第1位まで可" min="0.5" /> <span
+					placeholder="小数第1位まで" min="0.5" /> <span
 					class="walk-distance-unit">km</span>
 			</div>
 
-			<div class="input-group">
+			<div class="input-group2">
 				<label for="walk-time">時間：</label> <input type="number"
 					id="walk-time" class="walk-time-input" placeholder="30" min="0" />
 				<span class="walk-time-unit">分</span>

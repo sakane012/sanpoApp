@@ -40,9 +40,8 @@
 					class="logout-link">ログアウト</a>
 			</button>
 		</div>
-
-		<!-- 共通フッター読込 -->
-		<jsp:include page="/WEB-INF/footer.jsp" />
 	</div>
+	<!-- 共通フッター読込 -->
+	<jsp:include page="/WEB-INF/footer.jsp" />
 </body>
 </html>

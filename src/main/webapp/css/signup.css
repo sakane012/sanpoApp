@@ -1,0 +1,154 @@
+/*----------------------------------------
+  全体リセット
+----------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*----------------------------------------
+  body全体
+----------------------------------------*/
+body {
+    font-family: "Yu Gothic", "Hiragino Kaku Gothic Pro", Meiryo, sans-serif;
+    background-color: #f5fff5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+/*----------------------------------------
+  mainコンテンツ
+----------------------------------------*/
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/*----------------------------------------
+  h2見出し
+----------------------------------------*/
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #2e7d32;
+}
+
+/*----------------------------------------
+  フォーム
+----------------------------------------*/
+form {
+    background-color: #ffffff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/*----------------------------------------
+  ラベルと入力欄
+----------------------------------------*/
+label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    color: #333;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="password"] {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #2e7d32;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #90df8c;
+}
+
+/*----------------------------------------
+  送信ボタン
+----------------------------------------*/
+button[type="submit"] {
+    padding: 12px 25px;
+    border-radius: 8px;
+    background-color: #a8e6a3;
+    color: #2e7d32;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid #000;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+}
+
+button[type="submit"]:hover {
+    background-color: #90df8c;
+    transform: translateY(-2px);
+}
+
+/*----------------------------------------
+  エラーメッセージ
+----------------------------------------*/
+p.error {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/*----------------------------------------
+  ログインリンク
+----------------------------------------*/
+p.login-link {
+    text-align: center;
+    margin: 20px 0;
+}
+
+p.login-link a {
+    color: #2e7d32;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+p.login-link a:hover {
+    text-decoration: underline;
+}
+
+
+/*----------------------------------------
+  レスポンシブ対応
+----------------------------------------*/
+@media (max-width: 500px) {
+    form {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    button[type="submit"] {
+        font-size: 0.95rem;
+    }
+}

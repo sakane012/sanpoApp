@@ -1,4 +1,4 @@
-# 🌐 さんぽルートメーカー（Java / JSP / Servlet / javaScript）
+## さんぽルートメーカー（Java / JSP / Servlet / javaScript）
 
 ## 概要
 本アプリは、ユーザが入力した現在地や条件に応じて、散歩ルートを提案する
@@ -67,11 +67,13 @@ sanpoApp/
 │   └── test/
 └── README.md
 
+
 ---
 
-##  データベース構成
+## データベース構成
 
-### テーブル定義例：users
+### users テーブル
+
 | カラム名 | 型 | 説明 |
 |-----------|----|------|
 | id | INT | 主キー（AUTO_INCREMENT） |
@@ -80,13 +82,14 @@ sanpoApp/
 | password | VARCHAR(255) | ハッシュ化されたパスワード |
 | created_at | DATETIME | 登録日時 |
 
-### favorite_addresses
+### favorite_addresses テーブル
+
 | カラム名 | 型 | 説明 |
 |-----------|----|------|
 | id | INT | 主キー（AUTO_INCREMENT） |
 | user_id | INT | users.id (外部キー) |
-| prefecture| VARCHAR | 都道府県 |
-| cityStreet | VARCHAR | 市区町村・町名|
+| prefecture | VARCHAR | 都道府県 |
+| cityStreet | VARCHAR | 市区町村・町名 |
 | buildingNumber | VARCHAR | 番地 |
 | latitude | DOUBLE | 緯度 |
 | longitude | DOUBLE | 経度 |
@@ -94,62 +97,65 @@ sanpoApp/
 
 ---
 
-## 🧠 設計方針・工夫点
-- MVC設計：Servlet（Controller）、DAO（Model）、JSP（View）を分離
-- SQLインジェクション対策として **PreparedStatement** を使用
-- パスワードは **ハッシュ化（SHA-256 / bcrypt）** して保存
-- JSP include によるヘッダー・フッターの共通化
-- ER図・シーケンス図を用いて処理を明確化
+## 設計方針・工夫点
+- MVC 設計：Servlet（Controller）、DAO（Model）、JSP（View）を分離  
+- SQL インジェクション対策として **PreparedStatement** を使用  
+- パスワードは **SHA-256 / bcrypt** でハッシュ化して保存  
+- JSP include によるヘッダー・フッターの共通化  
+- ER 図・シーケンス図で処理を明確化  
 
 ---
 
-## 📊 UML / 設計資料
-> 以下のファイルを差し替えてください（今はプレースホルダー画像です）：
->
+## UML / 設計資料
+
+> 以下のファイルを差し替えてください（現在はプレースホルダー画像）：  
 > - `docs/usecase.png`：ユースケース図  
 > - `docs/uml_sequence.png`：シーケンス図  
 > - `docs/class_diagram.png`：クラス図  
->
-> 例：  
-> ![シーケンス図](./docs/uml_sequence.png)
+
+例：  
+![シーケンス図](./docs/uml_sequence.png)
 
 ---
 
-##  使用技術のポイント
-- **Servlet & JSP**：HTTPリクエスト処理・セッション管理・リダイレクト制御  
-- **DAOパターン**：DB操作の共通化・保守性向上  
+## 使用技術のポイント
+- **Servlet & JSP**：HTTP リクエスト処理・セッション管理・リダイレクト制御  
+- **DAO パターン**：DB 操作の共通化・保守性向上  
 - **SQL**：CRUD・JOIN・トランザクション  
 - **Tomcat**：ローカルテスト環境構築  
 
 ---
 
-##  今後の拡張予定
-
-
----
-
-##  画面キャプチャ（例）
-
+## 今後の拡張予定
+- [ ] ルート生成アルゴリズムの高度化  
+- [ ] 外部 API 連携（天気情報、観光地情報）  
+- [ ] モバイル最適化  
 
 ---
 
-## 🧾 ライセンス・著作権
+## 画面キャプチャ（例）
+
+*キャプチャ画像をここに追加してください。*
+
+---
+
+## ライセンス・著作権
 このプロジェクトは学習目的で作成したものであり、商用利用は想定していません。  
 各種ライブラリ・ツールのライセンスはそれぞれの作者に帰属します。
 
 ---
 
-## 👤 作成者
-- **GitHubアカウント**：sakane012  
+## 作成者
+- **GitHub アカウント**：sakane012  
 - **開発期間**：2025年10月〜11月  
 - **連絡先**：sakanereiji@gmail.com  
-- **GitHub**：https://github.com/yourname/java-webapp-portfolio
+- **GitHub リポジトリ**：[https://github.com/yourname/java-webapp-portfolio](https://github.com/yourname/java-webapp-portfolio)
 
 ---
 
-## ✅ 最終更新日
+## 最終更新日
 2025-11-17
 
 ---
 
-> ✏️ **編集方法**：VS Code / Typora などの Markdown 対応エディタで開くと、見出しや画像をプレビューできます。
+> ✏️ **編集方法**：VS Code / Typora などの Markdown 対応エディタで開くと、見出しや画像をプレビューできます。  

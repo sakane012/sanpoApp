@@ -1,7 +1,7 @@
 ## さんぽルートメーカー（Java / JSP / Servlet / javaScript）
 
 ## 概要
-本アプリは、ユーザが入力した現在地や条件に応じて、散歩ルートを提案する
+本アプリは、ユーザが入力した現在地や条件に応じて、散歩ルートを提案する  
 webアプリケーションです。  
 ランダムにルートを提示することで、日常の散歩をより充実させます。  
 
@@ -95,7 +95,7 @@ sanpoApp/
 ### favorite_addresses テーブル
 | カラム名 | 型 | 説明 |
 |-----------|----|------|
-| id | INT | 主キー（AUTO_INCREMENT） |
+| id | INT | 主キー （AUTO_INCREMENT） |
 | user_id | INT | users.id (外部キー) |
 | prefecture | VARCHAR | 都道府県 |
 | cityStreet | VARCHAR | 市区町村・町名 |
@@ -109,7 +109,7 @@ sanpoApp/
 ## 設計方針・工夫点
 - MVC 設計：Servlet（Controller）、DAO（Model）、JSP（View）を分離  
 - SQL インジェクション対策として **PreparedStatement** を使用  
-- パスワードは **SHA-256 / bcrypt** でハッシュ化して保存  
+- パスワードは  **bcrypt**  でハッシュ化して保存  
 - JSP include によるヘッダー・フッターの共通化   
 
 ---
@@ -117,7 +117,6 @@ sanpoApp/
 ## 使用技術のポイント
 - **Servlet & JSP**：HTTP リクエスト処理・セッション管理・リダイレクト制御  
 - **DAO パターン**：DB 操作の共通化・保守性向上  
-- **SQL**：CRUD・JOIN・トランザクション  
 - **Tomcat**：ローカルテスト環境構築  
 
 ---
@@ -139,6 +138,6 @@ sanpoApp/
 - **GitHub アカウント**：sakane012  
 - **開発期間**：2025年10月〜11月  
 - **連絡先**：sakanereiji@gmail.com  
-- **GitHub リポジトリ**：[https://github.com/yourname/java-webapp-portfolio](https://github.com/yourname/java-webapp-portfolio)
+- **GitHub リポジトリ**：[https://github.com/sakane012/sanpoApp.git]
 
 ---

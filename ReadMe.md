@@ -35,48 +35,48 @@ webアプリケーションです。
 ## ディレクトリ構成
 sanpoApp/
 └── src/
-    ├── main/
-    │   ├── java/
-    │   │   ├── model/
-    │   │   │   └── FavoriteAddress.java
-    │   │   ├── dao/
-    │   │   │   ├── FavoriteDao.java
-    │   │   │   └── UserDAO.java
-    │   │   └── servlet/
-    │   │       ├── DeleteFavoriteServlet.java
-    │   │       ├── FavoreteListServlet.java
-    │   │       ├── LoginServlet.java
-    │   │       ├── LogoutServlet.java
-    │   │       ├── RegisterAddressServlet.java
-    │   │       ├── ResultServlet.java
-    │   │       ├── SignupServlet.java
-    │   │       └── WelcomeServlet.java
-    │   └── webapp/
-    │       ├── js/
-    │       │   ├── result.js
-    │       │   └── search.js
-    │       ├── css/
-    │       │   ├── index.css
-    │       │   ├── login.css
-    │       │   ├── signup.css
-    │       │   ├── search.css
-    │       │   ├── favorites.css
-    │       │   ├── header.css
-    │       │   ├── footer.css
-    │       │   ├── result.css
-    │       │   └── welcome.css
-    │       ├── jsp/
-    │       │   ├── index.jsp
-    │       │   ├── login.jsp
-    │       │   ├── logout.jsp
-    │       │   └── search.jsp
-    │       └── WEB-INF/
-    │           ├── favorites.jsp
-    │           ├── header.jsp
-    │           ├── footer.jsp
-    │           ├── result.jsp
-    │           └── welcome.jsp
-    └── README.md
+　　　├── main/
+　　　│   ├── java/
+　　　│   │   ├── model/
+　　　│   │   │   └── FavoriteAddress.java
+　　　│   │   ├── dao/
+　　　│   │   │   ├── FavoriteDao.java
+　　　│   │   │   └── UserDAO.java
+　　　│   │   └── servlet/
+　　　│   │       ├── DeleteFavoriteServlet.java
+　　　│   │       ├── FavoreteListServlet.java
+　　　│       ├── LoginServlet.java
+　　　│   │       ├── LogoutServlet.java
+　　　│   │       ├── RegisterAddressServlet.java
+　　　│   │       ├── ResultServlet.java
+　　　│   │       ├── SignupServlet.java
+　　　│   │       └── WelcomeServlet.java
+　　　│   └── webapp/
+　　　│       ├── js/
+　　　│       │   ├── result.js
+　　　│       │   └── search.js
+　　　│       ├── css/
+　　　│       │   ├── index.css
+　　　│       │   ├── login.css
+　　　│       │   ├── signup.css
+　　　│       │   ├── search.css
+　　　│       │   ├── favorites.css
+　　　│       │   ├── header.css
+　　　│       │   ├── footer.css
+　　　│       │   ├── result.css
+　　　│       │   └── welcome.css
+　　　│       ├── jsp/
+　　　│       │   ├── index.jsp
+　　　│       │   ├── login.jsp
+　　　│       │   ├── logout.jsp
+　　　│       │   └── search.jsp
+　　　│       └── WEB-INF/
+　　　│           ├── favorites.jsp
+　　　│           ├── header.jsp
+　　　│           ├── footer.jsp
+　　　│           ├── result.jsp
+　　　│           └── welcome.jsp
+　　　└── README.md
 
 ---
 
@@ -110,8 +110,7 @@ sanpoApp/
 - MVC 設計：Servlet（Controller）、DAO（Model）、JSP（View）を分離  
 - SQL インジェクション対策として **PreparedStatement** を使用  
 - パスワードは **SHA-256 / bcrypt** でハッシュ化して保存  
-- JSP include によるヘッダー・フッターの共通化  
-- ER 図・シーケンス図で処理を明確化  
+- JSP include によるヘッダー・フッターの共通化   
 
 ---
 

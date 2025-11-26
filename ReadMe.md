@@ -33,47 +33,57 @@ webアプリケーションです。
 ---
 
 ## ディレクトリ構成
-```
 sanpoApp/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   ├── model/
-│   │   │   │   └── FavoriteAddress.java
-│   │   │   ├── dao/
-│   │   │   │   ├── FavotireDao.java
-│   │   │   │   └── UserDAO.java
-│   │   │   └── servlet/
-│   │   │       ├── DeleteFavoriteServlet.java
-│   │   │       ├── FavoreteListServlet.java
-│   │   │       ├── LoginServlet.java
-│   │   │       ├── LogoutServlet.java
-│   │   │       ├── RegisterAddressServlet.java
-│   │   │       ├── ResultServlet.java
-│   │   │       ├── SignupServlet.java
-│   │   │       └── WelcomeServlet.java
-│   │   └── webapp/
-│   │       ├── jsp
-│   │       │   ├── index.jsp
-│   │       │   ├── login.jsp
-│   │       │   ├── logout.jsp
-│   │       │   └── search.jsp
-│   │       └── WEB-INF/
-│   │           ├── favorites.jsp
-│   │           ├── header.jsp
-│   │           ├── footer.jsp
-│   │           ├── welcome.jsp
-│   │           └── result.jsp
-│   └── test/
-└── README.md
-
+└── src/
+    ├── main/
+    │   ├── java/
+    │   │   ├── model/
+    │   │   │   └── FavoriteAddress.java
+    │   │   ├── dao/
+    │   │   │   ├── FavoriteDao.java
+    │   │   │   └── UserDAO.java
+    │   │   └── servlet/
+    │   │       ├── DeleteFavoriteServlet.java
+    │   │       ├── FavoreteListServlet.java
+    │   │       ├── LoginServlet.java
+    │   │       ├── LogoutServlet.java
+    │   │       ├── RegisterAddressServlet.java
+    │   │       ├── ResultServlet.java
+    │   │       ├── SignupServlet.java
+    │   │       └── WelcomeServlet.java
+    │   └── webapp/
+    │       ├── js/
+    │       │   ├── result.js
+    │       │   └── search.js
+    │       ├── css/
+    │       │   ├── index.css
+    │       │   ├── login.css
+    │       │   ├── signup.css
+    │       │   ├── search.css
+    │       │   ├── favorites.css
+    │       │   ├── header.css
+    │       │   ├── footer.css
+    │       │   ├── result.css
+    │       │   └── welcome.css
+    │       ├── jsp/
+    │       │   ├── index.jsp
+    │       │   ├── login.jsp
+    │       │   ├── logout.jsp
+    │       │   └── search.jsp
+    │       └── WEB-INF/
+    │           ├── favorites.jsp
+    │           ├── header.jsp
+    │           ├── footer.jsp
+    │           ├── result.jsp
+    │           └── welcome.jsp
+    └── README.md
 
 ---
+
 
 ## データベース構成
 
 ### users テーブル
-
 | カラム名 | 型 | 説明 |
 |-----------|----|------|
 | id | INT | 主キー（AUTO_INCREMENT） |
@@ -83,7 +93,6 @@ sanpoApp/
 | created_at | DATETIME | 登録日時 |
 
 ### favorite_addresses テーブル
-
 | カラム名 | 型 | 説明 |
 |-----------|----|------|
 | id | INT | 主キー（AUTO_INCREMENT） |
@@ -106,18 +115,6 @@ sanpoApp/
 
 ---
 
-## UML / 設計資料
-
-> 以下のファイルを差し替えてください（現在はプレースホルダー画像）：  
-> - `docs/usecase.png`：ユースケース図  
-> - `docs/uml_sequence.png`：シーケンス図  
-> - `docs/class_diagram.png`：クラス図  
-
-例：  
-![シーケンス図](./docs/uml_sequence.png)
-
----
-
 ## 使用技術のポイント
 - **Servlet & JSP**：HTTP リクエスト処理・セッション管理・リダイレクト制御  
 - **DAO パターン**：DB 操作の共通化・保守性向上  
@@ -127,15 +124,9 @@ sanpoApp/
 ---
 
 ## 今後の拡張予定
-- [ ] ルート生成アルゴリズムの高度化  
-- [ ] 外部 API 連携（天気情報、観光地情報）  
-- [ ] モバイル最適化  
-
----
-
-## 画面キャプチャ（例）
-
-*キャプチャ画像をここに追加してください。*
+-  ルート生成アルゴリズムの高度化  
+-  ルートの保存機能  
+-  モバイル最適化  
 
 ---
 
@@ -152,10 +143,3 @@ sanpoApp/
 - **GitHub リポジトリ**：[https://github.com/yourname/java-webapp-portfolio](https://github.com/yourname/java-webapp-portfolio)
 
 ---
-
-## 最終更新日
-2025-11-17
-
----
-
-> ✏️ **編集方法**：VS Code / Typora などの Markdown 対応エディタで開くと、見出しや画像をプレビューできます。  

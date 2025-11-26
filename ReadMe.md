@@ -34,49 +34,49 @@ webアプリケーションです。
 
 ## ディレクトリ構成
 sanpoApp/
-└── src/
-　　　├── main/
-　　　│   ├── java/
-　　　│   │   ├── model/
-　　　│   │   │   └── FavoriteAddress.java
-　　　│   │   ├── dao/
-　　　│   │   │   ├── FavoriteDao.java
-　　　│   │   │   └── UserDAO.java
-　　　│   │   └── servlet/
-　　　│   │       ├── DeleteFavoriteServlet.java
-　　　│   │       ├── FavoreteListServlet.java
-　　　│       ├── LoginServlet.java
-　　　│   │       ├── LogoutServlet.java
-　　　│   │       ├── RegisterAddressServlet.java
-　　　│   │       ├── ResultServlet.java
-　　　│   │       ├── SignupServlet.java
-　　　│   │       └── WelcomeServlet.java
-　　　│   └── webapp/
-　　　│       ├── js/
-　　　│       │   ├── result.js
-　　　│       │   └── search.js
-　　　│       ├── css/
-　　　│       │   ├── index.css
-　　　│       │   ├── login.css
-　　　│       │   ├── signup.css
-　　　│       │   ├── search.css
-　　　│       │   ├── favorites.css
-　　　│       │   ├── header.css
-　　　│       │   ├── footer.css
-　　　│       │   ├── result.css
-　　　│       │   └── welcome.css
-　　　│       ├── jsp/
-　　　│       │   ├── index.jsp
-　　　│       │   ├── login.jsp
-　　　│       │   ├── logout.jsp
-　　　│       │   └── search.jsp
-　　　│       └── WEB-INF/
-　　　│           ├── favorites.jsp
-　　　│           ├── header.jsp
-　　　│           ├── footer.jsp
-　　　│           ├── result.jsp
-　　　│           └── welcome.jsp
-　　　└── README.md
+├── src/
+│   └── main/
+│       ├── java/
+│       │   ├── model/
+│       │   │   └── FavoriteAddress.java
+│       │   ├── dao/
+│       │   │   ├── FavoriteDao.java
+│       │   │   └── UserDAO.java
+│       │   └── servlet/
+│       │       ├── DeleteFavoriteServlet.java
+│       │       ├── FavoriteListServlet.java
+│       │       ├── LoginServlet.java
+│       │       ├── LogoutServlet.java
+│       │       ├── RegisterAddressServlet.java
+│       │       ├── ResultServlet.java
+│       │       ├── SignupServlet.java
+│       │       └── WelcomeServlet.java
+│       └── webapp/
+│           ├── js/
+│           │   ├── result.js
+│           │   └── search.js
+│           ├── css/
+│           │   ├── index.css
+│           │   ├── login.css
+│           │   ├── signup.css
+│           │   ├── search.css
+│           │   ├── favorites.css
+│           │   ├── header.css
+│           │   ├── footer.css
+│           │   ├── result.css
+│           │   └── welcome.css
+│           ├── jsp/
+│           │   ├── index.jsp
+│           │   ├── login.jsp
+│           │   ├── logout.jsp
+│           │   └── search.jsp
+│           └── WEB-INF/
+│               ├── favorites.jsp
+│               ├── header.jsp
+│               ├── footer.jsp
+│               ├── result.jsp
+│               └── welcome.jsp
+└── README.md
 
 ---
 
